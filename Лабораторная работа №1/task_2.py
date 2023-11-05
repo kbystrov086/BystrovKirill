@@ -1,13 +1,14 @@
-# TODO Найдите количество книг, которое можно разместить на дискете
-dano = {
-"Информационный объем дискеты равен": 1.44,
-"Количество страниц в книге":  100,
-"Число строк на странице":  50,
-"Количество символов в строке": 25,
-"Для хранения кода одного символа нужно": 4,
-"Перевод": 1024
-}
-volume = dano['Количество страниц в книге'] * dano['Число строк на странице'] * dano['Количество символов в строке'] * dano['Для хранения кода одного символа нужно']
-bytes = dano['Информационный объем дискеты равен'] * dano['Перевод'] * dano['Перевод']
-result = round(bytes / volume)
+pages = 100
+lines = 50
+chars = 25
+trans_chars = 4
+translate = 1024
+volume = 1.44
+
+total_chars = pages * lines * chars
+total_bytes = total_chars * trans_chars
+
+disk_size = volume * translate * translate
+result = int(disk_size // total_bytes)
+
 print("Количество книг, помещающихся на дискету:", result)
